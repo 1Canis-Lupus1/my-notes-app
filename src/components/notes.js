@@ -30,9 +30,9 @@ class Notes extends Component{
                     <footer> 
                         Notes Title: <input type="text" 
                                     placeholder="Enter Title here" 
-                                    ref={t=> this.title=t} />
+                                     />
                         Note: <textarea placeholder="Enter Notes here"
-                                ref={n=>this.note=n} />
+                                 />
                         <button type="submit">Save</button>
                     </footer> 
                 </form>
