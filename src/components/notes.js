@@ -13,6 +13,25 @@ class Notes extends Component{
     addNote= event => {
         console.log('Adding Notes');
 
+        if(this.title.value !== ""){
+            var newItems={
+                title:this.title.value,
+                note:this.note.value
+            }
+        }
+
+        this.setState((prevState)=>{
+            return{
+                items:prevState.items.concat(newItems)
+            };
+        });
+
+        //After setState Method, now setting the value back to empty
+        this.title.value="";
+        this.note.value="";
+
+        console.log(this.state.items);
+
         //Prevent reloading page On Submit:
         event.preventDefault();
     }
@@ -24,15 +43,17 @@ class Notes extends Component{
                     <h2>My Notes App!!</h2>
                 </header>
                 <div className="main-content">
-                    <span>Our data goes here!!</span>
+                    <ul>
+                        {this.state.items.map(val=><li>{val.title}-{val.note}</li>)}
+                    </ul>
                 </div>
                 <form onSubmit={this.addNote}>
                     <footer> 
                         Notes Title: <input type="text" 
                                     placeholder="Enter Title here" 
-                                     />
+                                    ref={t=>this.title=t} />
                         Note: <textarea placeholder="Enter Notes here"
-                                 />
+                                 ref={n=>this.note=n}/>
                         <button type="submit">Save</button>
                     </footer> 
                 </form>
