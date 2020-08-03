@@ -39,22 +39,25 @@ class Notes extends Component{
     render(){
         return(
             <React.Fragment>
-                <header>
-                    <h2>My Notes App!!</h2>
+                <header className="alert alert-warning">
+                    <h2 className="text-center">My Notes App!!</h2>
+                    Search: <input type="text" 
+                        placeholder="Search Notes"/><button className="m-3 btn btn-info" >Search</button>
+                        {/* ref={s=>this.search=s}/>{this.state.items.filter(name=> name.title !== name)} */}
                 </header>
-                <div className="main-content">
-                    <ul>
-                        {this.state.items.map(val=><li>{val.title}-{val.note}</li>)}
+                <div className="jumbotron jumbotron-fluid">
+                    <ul className="list-group">
+                        {this.state.items.map(val=><li className="list-group-item list-group-item-action text-center">{val.title}-{val.note}</li>)}
                     </ul>
                 </div>
                 <form onSubmit={this.addNote}>
-                    <footer> 
+                    <footer className="alert alert-success"> 
                         Notes Title: <input type="text" 
                                     placeholder="Enter Title here" 
                                     ref={t=>this.title=t} />
                         Note: <textarea placeholder="Enter Notes here"
                                  ref={n=>this.note=n}/>
-                        <button type="submit">Save</button>
+                        <button type="submit">Add Note</button>
                     </footer> 
                 </form>
             </React.Fragment>

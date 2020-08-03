@@ -1,5 +1,6 @@
 import React from 'react';
 import Notes from './components/notes';
+import 'bootstrap/dist/css/bootstrap.css';
 // import logo from './logo.svg';
 // import './App.css';
 
