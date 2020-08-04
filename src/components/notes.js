@@ -39,26 +39,27 @@ class Notes extends Component{
     render(){
         return(
             <React.Fragment>
-                <header className="alert alert-warning">
-                    <h2 className="text-center">My Notes App!!</h2>
-                    Search: <input type="text" 
-                        placeholder="Search Notes"/><button className="m-3 btn btn-info" >Search</button>
+                <header className="alert alert-warning row justify-content-end">
+                    <h2 className="col-8">My Notes App!!</h2>
+                    <span className="col align-self-end">Search: <input type="text" 
+                        placeholder="Search Notes"/>
+                    <button className="m-3 btn btn-info" >Search</button></span>
                         {/* ref={s=>this.search=s}/>{this.state.items.filter(name=> name.title !== name)} */}
                 </header>
-                <div className="jumbotron jumbotron-fluid">
+                <div className="jumbotron ">
                     <ul className="list-group">
-                        {this.state.items.map(val=><li className="list-group-item list-group-item-action text-center">{val.title}-{val.note}</li>)}
+                        {this.state.items.map(val=><li className="list-group-item list-group-item-action text-center"><strong>{val.title}</strong> -  "<em>{val.note}</em>"</li>)}
                     </ul>
                 </div>
                 <form onSubmit={this.addNote}>
-                    <footer className="alert alert-success"> 
-                        Notes Title: <input type="text" 
+                    <div className="alert alert-success footer"> 
+                        <strong>Notes Title: </strong><input type="text" 
                                     placeholder="Enter Title here" 
-                                    ref={t=>this.title=t} />
-                        Note: <textarea placeholder="Enter Notes here"
+                                    ref={t=>this.title=t} required/>
+                        <strong>Note: </strong><textarea placeholder="Enter Notes here"
                                  ref={n=>this.note=n}/>
-                        <button type="submit">Add Note</button>
-                    </footer> 
+                        <button type="submit" className='m-2 btn btn-primary'>Add Note</button>
+                    </div> 
                 </form>
             </React.Fragment>
         );
