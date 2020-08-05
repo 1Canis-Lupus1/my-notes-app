@@ -1,5 +1,5 @@
 # my-notes-app
-A basic note-taking webpage made completly using ReactJs. 
+A basic note-taking webpage made completly using ReactJs.  
 
 
 Screenshot-
